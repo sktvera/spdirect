@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ItemReorderEventDetail } from '@ionic/angular';
 import { Elemento } from './types'
 import { IonModal } from '@ionic/angular';
-//import { ShareDataService } from '../../../share-data.service';
+import { ShareDataService } from '../../../share-data.service';
 import { Item } from './types';
 import { OrderingComponent } from './ordering/ordering.component'
 import { PictureModalComponent } from './pictureModal/pictureModal.component'
@@ -16,9 +16,8 @@ import { ModalController } from '@ionic/angular';
 export class ListPage implements OnInit {
 
 
-//private shareDataService: ShareDataService,
-  
-  constructor( private modalCtrl: ModalController) {}
+//,  
+  constructor( private modalCtrl: ModalController, private shareDataService: ShareDataService) {}
   @ViewChild('modal', { static: true }) modal!: IonModal; 
 
   openOrCloseUserSettings: boolean = false;  //estado del menu desplegar menu usuario

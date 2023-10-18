@@ -13,8 +13,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-
+import { Deeplinks } from '@ionic-native/deeplinks/ngx';
+import { BackgroundMode } from "@ionic-native/background-mode/ngx"
 import { ShareDataService } from './share-data.service'; // 
 
 
@@ -40,7 +40,10 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
   ],
-  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+  providers: [
+    BackgroundMode,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+    Deeplinks,
     AppVersion,
     ShareDataService
   ],

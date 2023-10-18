@@ -9,75 +9,68 @@
 		</div>
 
 		<div class="form">
-			<!-- <form #miFormulario="ngForm" (ngSubmit)="onSubmit(miFormulario)" > -->
-				<form  >
-					<!-- form (ngSubmit)="login()" -->
-<!-- INPUT PARA INGRESAR EMAIL -->
+			<form #miFormulario="ngForm" (ngSubmit)="login(miFormulario.value)">
+				<!-- INPUT PARA INGRESAR EMAIL -->
 				<ion-item class="ion-no-padding">
-					<ion-label position="floating" class="lbs">{{"Usuario o correo electrónico" |translate}}
-					</ion-label>
-					<ion-input 
-						placeholder="usuario@dominio.com" 
-						name="email" 
-						id="email" 
-						type="email" 
-						autocomplete="off"
-						[(ngModel)]="username"
-						 required
-						>
-					</ion-input>
+				  <ion-label position="floating" class="lbs">{{"Usuario o correo electrónico" | translate}}</ion-label>
+				  <!-- añadir label en el input para eliminar el error de warning de ionic -->
+				  <ion-input
+				  	aria-label="Email"
+					placeholder="usuario@dominio.com"
+					name="email"
+					id="email"
+					type="email"
+					autocomplete="off"
+					required
+					[(ngModel)]="miFormulario.value.email"
+				  ></ion-input>
 				</ion-item>
-<!-- INPUT PARA INGRESAR CONTRASEÑA -->
+				<!-- INPUT PARA INGRESAR CONTRASEÑA -->
 				<ion-item class="ion-no-padding">
-					<ion-label position="floating" class="lbs">{{"ingresa tu contraseña"}}</ion-label>
-					<ion-input 
-						[type]="typePassShow ? 'password' : 'text'" 
-						id="password" 
-						name="password"
-						autocomplete="off"
-						placeholder="*********"
-						[(ngModel)]="password"
-						required
-						>
-					</ion-input>
-					<span (click)="typePassShow = !typePassShow" class="material-icons" id="pwd-span">
-						<img class="log" src="../../../../assets//icon//eyes-visibility.svg" alt="icono-vsibility" />
-					</span>
+				  <ion-label  position="floating" class="lbs">{{"ingresa tu contraseña"}}</ion-label>
+				  <ion-input
+				  	aria-label="password"
+					[type]="typePassShow ? 'password' : 'text'"
+					id="password"
+					name="password"
+					autocomplete="off"
+					placeholder="*********"
+					required
+					[(ngModel)]="miFormulario.value.password"
+				  ></ion-input>
+				  <span (click)="typePassShow = !typePassShow" class="material-icons" id="pwd-span">
+					<img class="log" src="../../../../assets/icon/eyes-visibility.svg" alt="icono-visibility" />
+				  </span>
 				</ion-item>
-<!-- RECUPERAR CONTRASEÑA -->
-				<div  class="rememberPassword">
-					<p>Recuperar contraseña</p>
+				<!-- RECUPERAR CONTRASEÑA -->
+				<div class="rememberPassword">
+				  <p>Recuperar contraseña</p>
 				</div>
-<!-- ENVIAR FORMULARIO  [routerLink]="['/channels']" -->
-<!-- (click)="login()" -->
+				<!-- ENVIAR FORMULARIO [routerLink]="['/channels']" -->
 				<button
-				type="submit"
-				
-				class="but-log alt" id="sign-up" 
-				
-				> 
-					{{"iniciar Sesion" | translate}}
+				  type="submit"
+				  class="but-log alt"
+				  id="sign-up"
+				>
+				  {{ "iniciar Sesion" | translate }}
 				</button>
-<!-- ABRIR REGISTRO -->
+				<!-- ABRIR REGISTRO -->
 				<div>
-					<div class="lineAndSubTitle">
-						<div class="line"></div>
-						<p [routerLink]="['/registration']">Registrarme</p>
-						<div class="line"></div>
-					</div>
-<!-- LOGIN CON GOOGLE  -->
-					<button  [routerLink]="['/channels']"class="but-log-google alt">
-						
-						<img class="log" src="../../../../assets/icon//google-icon.svg" alt="google-icon" />
-						Google
-					</button>
-
-					<p style="margin-bottom: 10px" class="terms">
-						Al continuar estás aceptando los términos de uso y políticas de
-						privacidad
-					</p>
+				  <div class="lineAndSubTitle">
+					<div class="line"></div>
+					<p [routerLink]="['/registration']">Registrarme</p>
+					<div class="line"></div>
+				  </div>
+				  <!-- LOGIN CON GOOGLE -->
+				  <button [routerLink]="['/channels']" class="but-log-google alt">
+					<img class="log" src="../../../../assets/icon/google-icon.svg" alt="google-icon" />
+					Google
+				  </button>
+				  <p style="margin-bottom: 10px" class="terms">
+					Al continuar estás aceptando los términos de uso y políticas de privacidad
+				  </p>
 				</div>
-			</form>
+			  </form>
 		</div>
 	</div>
 </ion-content>
