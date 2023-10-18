@@ -1,0 +1,58 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="menu__nav">IR A</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <!-- Opción 1: Reporte Fotográfico -->
+      <ion-item routerLink="/Dashboard">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__Dashboard.svg" alt="nav__Dashboard">
+        </div>
+        Dashboard
+      </ion-item>
+      
+      <!-- Opción 2: Carrito -->
+      <ion-item routerLink="/Campañas">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__Campain.svg" alt="nav__Campain">
+        </div>
+        Campañas
+      </ion-item>
+
+      <!-- Opción 3: Reportes -->
+      <ion-item [routerLink]="['/login']">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__Multimedia.svg" alt="nav__Multimedia">
+        </div>
+        Multimedia
+      </ion-item>
+
+      <!-- Opción 4: Multimedia -->
+      <ion-item routerLink="/Reportes">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__Reportes.svg" alt="nav__Reportes">
+        </div>
+        Reportes
+      </ion-item>
+
+      <!-- Opción 5: Campañas -->
+      <ion-item routerLink="/Carrito">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__Carrito.svg" alt="nav__Carrito">
+        </div>
+        Carrito
+      </ion-item>
+
+      <!-- Opción 6: Dashboard -->
+      <ion-item routerLink="/ReporteFotográfico">
+        <div style="margin-right: 10px;">
+          <img class="log" src="../../../assets/icon/nav__ReporteFotografico.svg" alt="nav__ReporteFotografico">
+        </div>
+        Reporte Fotográfico
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

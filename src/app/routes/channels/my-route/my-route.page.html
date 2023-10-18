@@ -1,0 +1,126 @@
+
+<br>
+<ion-content  class="ion-padding">
+  <div class="grid_content">
+    <div 
+      *ngFor="let items_reference of receivedReferences as index" 
+    
+    >
+   <!--  class="grid_select" 
+    [disabled]="false" 
+    (ionItemReorder)="handleReorder($any($event))" -->
+
+    <!-- sendInfo -->
+    <ion-item-sliding>
+          
+  
+          <ion-item>
+                  <div  class="ref__item" >
+                      <div class="ref__item__body">
+                          <div class="content_img">
+                              <img  class="log" src="../../../assets/img/example_selected.png" alt="active-selected"> 
+                          </div>
+                          <div class="ref__titles">
+                              <div  ><p class="ion-label ref__titles__title" style="font-size: 14px !important;color: #344750"> {{items_reference.name}} </p></div>
+                              <div class="ref__info__Description"><img  class="log" src="../../../assets/icon/ref__ megaphone.svg" alt="megaphone"> <p> {{items_reference.Campaign}} </p></div>
+                              <div class="ref__info__Description"><img  class="log" src="../../../assets/icon/ref__user.svg" alt="megaphone"><p> {{items_reference.customer_name}} </p></div>
+                              <div class="ref__info__Description">
+                                <img *ngIf="items_reference.priority[0].basic === true "class="log" src="../../../../assets/icon/ref __clock__basic.svg" alt="megaphone">
+                                <img *ngIf="items_reference.priority[0].medium === true "class="log" src="../../../../assets/icon/ref__clock__medium.svg" alt="megaphone">
+                                <img *ngIf="items_reference.priority[0].high === true "class="log" src="../../../../assets/icon/ref__clock__high.svg" alt="megaphone">
+                                
+                                <p 
+                                  [style]="
+                                  items_reference.priority[0].basic === true ? 'color:#00C851;'
+                                  :
+                                  items_reference.priority[0].medium === true ? 'color:#F7A600;'
+                                  : 
+                                  items_reference.priority[0].high === true ? 'color:#FF4444;' 
+                                  : 
+                                  '' 
+                                  "
+                                  >vence en {{items_reference.priorityDays}} día</p>
+                              </div>
+                                
+                          </div>
+                      </div>
+                      <div class="image_and_display">
+                         <!--  <div class="custom-progress-bar"><ion-progress-bar [value]="progress"></ion-progress-bar></div> -->
+                        <!-- <div (click)="activeMediaMenu()" >
+                          <img *ngIf="!openOrCloseMediaMenu"  class="log" src="../../../../assets/icon/ref__media.svg" alt="ref__media">
+                          <img *ngIf="openOrCloseMediaMenu"  class="log" src="../../../../assets/icon/ref__media__active.svg" alt="ref__media__active">
+                        </div> -->
+                      </div>
+                  </div>
+            </ion-item>
+
+            <ion-item-options side="end">
+            <ion-item-option color="danger">
+              <p style="color: white;font-weight: 600;">Retirar</p>
+            </ion-item-option>
+          </ion-item-options>
+    </ion-item-sliding>
+       
+    <!-- openOrCloseMediaMenu -->
+          <div *ngIf="" class="activeMediaMenu" >
+              <div class="media__info_filtersAndSchedule">
+                  <div class="filters">
+                    <div class="filters__iconSize">  <img  class="log" src="../../../assets/icon/ref__item__channel.svg" alt="ref__item__channel"></div>
+                      <p> {{items_reference.channelLocation}} </p>
+                  </div>
+                  <div class="schedule">
+                      <div class="clockSchedule">
+                         <div class="clockSchedule__iconSize"> <img  class="log" src="../../../assets/icon/ref__item__calendar.svg" alt="ref__item__calendar."></div>
+                          <p class="default-text"> {{items_reference.openingHours}} </p>
+                          <p class="hover-text">{{items_reference.closingHours}}</p>
+                      </div>
+                      <div class="schedule__days">
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].lun ===true ? 'color:#F7A600' : ''">Lun</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].mar ===true ? 'color:#F7A600' : ''">Mar</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].mie ===true ? 'color:#F7A600' : ''">Mie</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].jue ===true ? 'color:#F7A600' : ''">Jue</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].vie ===true ? 'color:#F7A600' : ''">Vier</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].sab ===true ? 'color:#F7A600' : ''">Sab</p>
+                          </div>
+                          <div>
+                            <p [style]="items_reference.daysActivity[0].dom ===true ? 'color:#F7A600' : ''">Dom</p>
+                          </div>  
+                      </div>
+                  </div>
+              </div>
+              <!-- <div *ngFor="let locationPhoto of items_reference.picturesLocation" class="mediaComtent__Img">
+                <div class="mediaComtent__Img__Item">
+                  <img  class="log" src="../../../assets/img/example_selected.png" alt="active-selected">
+                  <p> {{locationPhoto}} </p> 
+                </div>
+                
+                <div class="mediaComtent__Img__Item">
+                  <img  class="log" src="../../../assets/icon/ref__item__loadImg.svg" alt="active-selected"> 
+                  <p>piso1</p> 
+                </div>
+
+              </div> -->
+
+              <div class="mediaComtent__Img">
+                <ng-container *ngFor="let locationPhoto of items_reference.picturesLocation">
+                  <div class="mediaComtent__Img__Item">
+                    <img class="log" src="../../../assets/img/example_selected.png" alt="active-selected">
+                    <p>{{ locationPhoto.nameLocation }}</p>
+                  </div>
+                </ng-container>
+              </div>
+          </div>
+    </div>
+  </div>
+</ion-content>

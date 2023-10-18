@@ -1,0 +1,367 @@
+/* Conditional open or close settings user */
+$orangeDirect: #F7A600;
+$greyDirect:#8F929B;
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px); /* Comienza arriba y se desplaza hacia abajo */
+    opacity: 0; /* Comienza invisible */
+  }
+  100% {
+    transform: translateY(0); /* Termina en su posición normal */
+    opacity: 1; /* Termina completamente visible */
+  }
+}
+
+@keyframes scaleInSize {
+    0% {
+      transform: scale(0); /* Comienza completamente invisible (escala 0) */
+    }
+    100% {
+      transform: scale(1); /* Termina con su tamaño normal (escala 1) */
+    }
+  }
+
+  .modal-wrapper{background-color: #F7A600;}
+
+        .ion-padding{
+            .banner__Ordering {
+                width: 100%;
+                background-color: #34475009;
+                height: 20px;
+                display: flex;
+                justify-content: space-between;
+                text-transform: uppercase;
+                color: #344750;
+                font-size: 14px;
+            }
+            .banner__items {
+                margin: 0px;
+                padding-left: 5px;
+                font-weight: 600;
+            }
+            .banner__ordering {
+                text-transform: capitalize;
+               
+               cursor: pointer;
+                margin: 0px;
+                padding-left: 5px;
+                color: $orangeDirect !important;
+            }
+            
+            .searchAndFilter .ion-list{
+                display: grid;
+                grid-template-columns: 75% auto;
+                .buttonOpenFilter{
+                    border-radius:16px ;
+                    height: 50px;
+                    .contentTextFilter{
+                        p{
+                            font-weight: 600;
+                            color:$orangeDirect ;
+                        }
+                    }
+                }
+                
+            }
+            .grid_item_nav{
+                height: 50px;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                .info_menu_selected{
+                    display: grid;
+                    grid-template-columns: 60%  30%  10%;
+                        .info_menu_selected_items{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100%;
+                            width: 100%;
+                        }           
+                }
+                .tittle_selected{
+                    font-size: 12px;
+                    font-family: sans-serif;
+                    color: #344750;
+                    height: 60%;
+                }   
+                .percentage_indicator{
+                    color: #686868;
+                    font-size: 10px;
+                }
+            }
+            .grid_item_nav:hover{
+                background-color:#f7a50036 ;
+            }
+            .grid_content{
+                display: grid;
+                grid-template-columns: auto;
+                gap: 10px;
+                .grid_select{
+                    animation: scaleInSize 0.5s !important;
+                    box-shadow: 10px 10px 29px -13px rgba(0, 0, 0, 0.443);
+                    border-radius: 8px;
+                    .activeMediaMenu{
+                        animation: slideIn 0.5s !important;
+                        overflow: hidden;
+                        display: block;
+                        .location__iconAndTitle
+                       
+{
+                            
+                            display: grid;
+                            grid-template-columns: 10px auto;
+                            gap:5px;
+                            font-size: 12px;
+                            color: $orangeDirect;
+                            .location__icon{
+                                display: flex;
+                            }
+                    }
+                    .location__container{
+                        transition: 0.5s;
+                        animation: scaleInSize 0.5s !important;
+                        text-transform: capitalize !important;
+                        display: grid;
+                        grid-template-columns: 160px 230px;
+                        .section
+{
+                            animation: slideIn 0.5s !important;
+                            height: auto;
+                            margin-bottom: 10px;
+                            border-top: 1px dashed #00000026;
+                            width: 380px;
+                         
+}
+                        .location__content{
+                            display: grid;
+                            grid-template-columns: auto auto auto;
+                             .location__priority{
+                                display: grid;
+                                grid-template-columns: 10px auto;
+                                gap:5px;
+                                font-size: 12px;
+                                .location__icon{
+                                    display: flex;
+                                }
+                            }
+                            .location__progress{
+                                display: grid;
+                                grid-template-columns: 60px auto;
+                                gap: 5px;
+                                font-size: 12px;
+                                color: $greyDirect;
+                                .location__progressBar{
+                                    display: flex;
+                                    align-items: center;
+                                }
+                            }
+                            .location__Open__section{
+                                display: flex;
+                                align-items: center;
+                                margin: 1px;
+                            }
+                        }
+                    }
+                    .media__info_filtersAndSchedule{
+                        font-size: 12px;
+                        display: grid;
+                        grid-template-columns: 150px auto;
+                        .filters{
+                            color: $greyDirect;
+                            display: grid;
+                            grid-template-columns: 20px auto;
+                            gap:5px;
+                            display: flex;
+                            align-items: flex-start;
+                            .filters__iconSize{
+                                display: flex;
+                                height: 65%;
+                            }
+                        }
+                        .schedule{
+                            display: flex;
+                            flex-direction: row;
+                            gap: 10px;
+                            .clockSchedule{
+                                margin-right: 5px;
+                                display: flex;
+                                align-items: center;
+                                .clockSchedule__iconSize{
+                                    display: flex;
+                                    height: 65%;
+                                }
+                                img{
+                                    margin-right: 5px;
+                                }
+                                .hover-text {
+                                    position: absolute;
+                                    top: 0;
+                                    background-color: white;
+                                  }
+                                  .default-text {
+                                    z-index: 2; /* Asegura que el texto por defecto esté por encima del fondo blanco */
+                                  }
+                                  .default-text:hover {
+                                  color: transparent;
+                                  }
+                            }
+                            .clockSchedule:hover .hover-text {
+                                display: block; /* Mostrar el texto al hacer hover sobre el contenedor */
+                                font-weight: 600;
+                              }
+                            .schedule__days{
+                                display: flex;
+                                flex-direction: row;
+                                gap: 5px; 
+                            }
+                        }
+                    }
+                    .mediaComtent__Img{
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr); 
+                        gap: 8px;
+
+                        /* .block {
+                            width: 100%;
+                            height: 300px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                          }
+                          
+                          ion-modal {
+                            --height: auto;
+                          } */
+
+                        
+
+                        .mediaComtent__Img__Item{
+                            display: grid;
+                            grid-template-rows: auto 15px;
+                            width: 70px;
+                            
+                            p{
+                                font-size:10px;
+                                color: #8F929B;
+                                margin: 0px;
+                                padding: 0px;
+                                text-align: center;
+                            }
+                            img{
+                                object-fit: cover;
+                                height: 60px;
+                                border-radius: 8px;
+                            }
+                        }
+                    }
+                }
+                .ref__item{
+                    display: grid;
+                    grid-template-columns: 90% 10%;
+                    width: 100%;
+                    border-radius: 8px;
+                    
+                    .ref__item__body{
+                        height: 95px;
+                        display: grid;
+                        grid-template-columns: 50% 60%;
+                        .content_img{
+                            margin: 5px 5px ;
+                            img{
+                                height: 80px;
+                                object-fit: cover;
+                            }
+                        }   
+                        .ref__titles{
+                            display: grid;
+                            grid-template-rows: 30px 20px 20px 20px;
+                            text-transform: capitalize !important;
+                                .ion-select::part(icon) {
+                                    display: none;
+                                }
+                                .ion-select{
+                                    font-size: 12px; 
+                                    width: 90px;
+                                }
+                            div p{
+                                margin: 0px;
+                                padding: 0px; 
+                            }
+                            .Campaign{
+                                color:$orangeDirect ;
+                            }
+                            .ref__info__Description{
+                                height: 3px;
+                                font-size: 12px;
+                                display: grid;
+                                grid-template-columns: 25px auto;
+                                img{
+                                    height: 20px;
+                                    width: 17px;
+                                }          
+                            }
+                            .ref__titles__title{
+                                font-size: 18px !important;
+                                color: #344750;
+                                overflow: hidden;
+                               font-weight: 600;
+                                white-space: nowrap;
+                                width: 160px;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                    .image_and_display{
+                       
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: flex-end;
+                        margin-top: 10px;
+                        ion-progress-bar.custom-progress-bar {
+                        --bar-background: linear-gradient(
+                            to right, 
+                            transparent, 
+                            transparent calc(50% - 4px),
+                            #007bff,
+                            transparent calc(50% + 4px),
+                            transparent
+                            );
+                        border-radius: 10px !important;
+                        }
+                        .log{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .on-list{
+        height: 0px;
+        overflow-y: hidden;
+        padding: 0px;
+        transition:0.5s ease ;
+        -webkit-transition:0.5s ease ;
+        -moz-transition:0.5s ease ;
+        -ms-transition:0.5s ease ;
+        -o-transition:0.5s ease ;
+    }
+    .openActive{
+        transition: 0.5s ease;
+        transform: rotate(90deg);
+        -webkit-transition: 0.5s ease;
+        -moz-transition: 0.5s ease;
+        -ms-transition: 0.5s ease;
+        -o-transition: 0.5s ease;
+    }
+   .openContent{
+        height: 400px;
+        overflow: auto;
+        padding: 10px;
+   }

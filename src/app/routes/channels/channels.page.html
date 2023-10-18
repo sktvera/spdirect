@@ -1,0 +1,53 @@
+<div class="ion-page" id="main-content">
+  <!-- BARRA DE NAVAGEACION -->
+  <app-navbar></app-navbar>
+
+  <ion-header>
+    <ion-toolbar>
+      <div [ngClass]="
+             openOrCloseUserSettings ? 
+              'content_header_true'
+             :
+              'content_header'"
+            >
+<!-- OPEN OR CLOSE MENU -->
+        <ion-menu-button class="header_items" slot="start">
+          <img class="log" src="../../../assets/icon/open__nav__menu.svg" alt="open__nav__menu" />
+        </ion-menu-button>
+ <!--   IMAGEN ENMEDIO DIRECT -->
+        <img   class="header_items" *ngIf="!openOrCloseUserSettings" src="../../../assets/icon/nav__header__iconDirect.svg" alt="iconDirect" />
+<!--  MENU CONFIGURACION USUARIO -->
+        <div class="header_items items_settings">
+          <img *ngIf="openOrCloseUserSettings" src="../../../assets/icon/Campaign.svg" alt="pointers" />
+          <img *ngIf="openOrCloseUserSettings" src="../../../assets/icon/user_setting.svg" alt="pointers" />
+          <div (click)="activeMenuUser()">
+              <img src="../../../assets/icon/pointers.svg" alt="pointers" />
+          </div>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" >
+      <ion-tab-button class="tab-link menu-but" tab="list">
+        <div class="footer_items">
+          <img src="../../../assets/icon/footer__navigate__list.svg" alt="pointers">
+          <p>Lista</p>
+        </div>
+      </ion-tab-button>
+      <ion-tab-button class="tab-link menu-but" tab="map">
+        <div class="footer_items">
+          <img src="../../../assets/icon/footer__navigate__location.svg" alt="pointers">
+          <p>Mapa</p>
+        </div>
+      </ion-tab-button>
+      <ion-tab-button class="tab-link menu-but" tab="myRoute">
+        <div class="footer_items">
+          <img src="../../../assets/icon/footer__navigate__map.svg" alt="pointers">
+          <p>Mi Ruta</p>
+        </div>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>

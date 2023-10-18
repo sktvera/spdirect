@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="main-h">
+        <div class="con">
+          <ion-icon name="arrow-back-outline" [routerLink]="['/login']"></ion-icon>
+          <div class="mask"> 
+            <!-- <img class="log" src="../../../assets/icon/enmedio-connect-iso.svg" alt="">  -->
+            <p>{{"speaks" | translate}}</p>
+          </div>
+        </div>
+
+        <div class="formm ">
+          <div class="alert success" *ngIf="alert">{{"message" | translate}}</div>
+        <form #registerForm="ngForm" >
+            <ion-item class="ion-no-padding"> 
+              <ion-label position="stacked"  class="lbs">{{"nombre" | translate}}</ion-label>
+              <ion-input id="name" name="nombre" [(ngModel)]="name"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-no-padding">
+              <ion-label position="stacked"class="lbs">{{"email" | translate}}</ion-label>
+              <ion-input id="mail" type="email" name="correo"[(ngModel)]="mail"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-no-padding"> 
+              <ion-label position="stacked"  class="lbs">{{"telefono" | translate}}</ion-label>
+              <ion-input id="tel" name="tel" [(ngModel)]="tel"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-no-padding"> 
+              <ion-label position="stacked"  class="lbs">{{"empresa" | translate}}</ion-label>
+              <ion-input id="emp" name="emp" [(ngModel)]="company"></ion-input>
+            </ion-item>
+
+          </form>
+            <button ion-button block class="but-log alt" id="sign-up" (click)="sendData()">{{"conocerMas" | translate}}</button>
+         
+
+        </div>
+        <p class="terms">{{"aceptar" | translate}} <a [routerLink]="['/terms']">{{"terms" | translate}}</a></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

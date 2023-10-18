@@ -1,0 +1,15 @@
+ion-menu::part(backdrop) {
+    background-color:#F7A600;
+  }
+  
+  ion-menu::part(container) {
+   
+  
+    box-shadow: 4px 0px 16px #f7a5006a;
+  }
+  .menu__nav{
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    height: 100%;
+  }

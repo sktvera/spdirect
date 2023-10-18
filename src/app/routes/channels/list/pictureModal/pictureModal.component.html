@@ -1,0 +1,18 @@
+
+
+<div class="pictureModal">
+  <!-- Muestra la información del elemento seleccionado -->
+  <div class="modal-content">
+<div class="block"> <p>{{ data.nameSection }}</p></div>
+    
+    <!-- Otras propiedades del elemento -->
+  </div>
+
+  <button (click)="closeModal()">Cerrar</button>
+</div>
+
+<ion-modal  [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ng-template>
+    <div class="block">Block of Content</div>
+  </ng-template>
+</ion-modal>

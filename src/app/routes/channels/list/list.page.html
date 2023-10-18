@@ -1,0 +1,206 @@
+
+
+
+<br>
+  <ion-content  class="ion-padding"> 
+      <!--BUSCADOR - FILTRAR POR REFERENCIA -->
+      <div class="searchAndFilter">
+        <ion-list class="ion-list" [inset]="true">
+            <ion-searchbar></ion-searchbar>
+            <ion-item class="buttonOpenFilter" [button]="true" [detail]="false" id="select-fruits">
+            <div class="contentTextFilter"  slot="end" >
+              <p>
+                {{ selectedFilterText }}
+              </p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <ion-modal trigger="select-fruits" #modal>
+        <ng-template>
+         <!--  <app-filters
+            class="ion-page"
+            title="Filtro Primario"
+
+            [elementos]="elementos" 
+            [items]="fruits"
+
+            [selectedFilterText]="selectedFilterText"
+            [selectedFruitsText]="selectedFruitsText"
+
+            [selectedItemsFilter]="selectedFilter"
+            [selectedItems]="selectedFruits"
+
+            (selectionFilterChange)="filterSelectionChanged($event)"
+            (selectionChange)="fruitSelectionChanged($event)"
+
+            (selectionCancel)="modal.dismiss()"
+          ></app-filters> -->
+        </ng-template>
+      </ion-modal>
+
+      <div class="banner__Ordering"*ngIf="organizado['Ciudad']">
+         <!--  <p class="banner__items" > {{organizado.Ciudad}} </p>        --> 
+          <p class="banner__items banner__ordering" (click)="openModal()">
+            {{ message || 'Ordenamiento' }}
+          </p>
+      </div>
+      
+        <div *ngFor="let item of filteredCampaigns"   class="grid_content">
+          <div 
+            *ngFor="let items_reference of item.reference as index" 
+            class="grid_select" 
+           
+            (ionItemReorder)="handleReorder($any($event))"
+          >
+           [disabled]="false" 
+
+          <!-- sendInfo -->
+          <ion-item-sliding>
+                <ion-item-options side="start">
+                  <ion-item-option (click)="sendInfo(items_reference)" color="success">
+                    <p style="color: white;font-weight: 600;">Agregar</p>
+                  </ion-item-option>
+                </ion-item-options>
+        
+                <ion-item >
+                        <div  class="ref__item" >
+                            <div class="ref__item__body">
+                                <div class="content_img">
+                                    <img  class="log" src="../../../assets/img/example_selected.png" alt="active-selected"> 
+                                </div>
+                                <div class="ref__titles">  
+                                    <ion-select class="ion-select" aria-label="Fruit" interface="action-sheet" placeholder="Prioridad">
+                                      <ion-select-option value="apples">Muy Alta</ion-select-option>
+                                      <ion-select-option value="oranges">Alta</ion-select-option>
+                                      <ion-select-option value="bananas">Media</ion-select-option>
+                                    </ion-select>
+                                    <div ><p class="ion-label ref__titles__title" style="font-size: 14px !important;color: #344750"> {{items_reference.name}} </p></div>
+                                    <div class="ref__info__Description Campaign"><img  class="log" src="../../../assets/icon/ref__ megaphone.svg" alt="megaphone"> <p> {{items_reference.Campaign}} </p></div>
+                                    <div class="ref__info__Description"><img  class="log" src="../../../assets/icon/ref__user.svg" alt="megaphone"><p> {{items_reference.customer_name}} </p></div>
+                                </div>
+                            </div>
+                            <div class="image_and_display">
+                              <div (click)="activeMediaMenu()" >
+                                <img   class="log" [src]="openOrCloseMediaMenu?'../../../../assets/icon/ref__media__active.svg':'../../../../assets/icon/ref__media.svg'" alt="ref__media">
+                              </div>
+                            </div>
+                        </div>
+                  </ion-item>
+          </ion-item-sliding>
+             
+
+
+                  <div *ngIf="openOrCloseMediaMenu" class="activeMediaMenu" >
+<!-- EN ESTE COMPONENETE SE VAN A VER LAS LOCATIONES ************************************************* -->
+                  <div class="location__container" *ngFor="let referenceLocation of items_reference.location">
+                        <div class="location__iconAndTitle">
+                            <div class="location__icon">  <img  class="log" src="../../../assets/icon/ref__item__channel.svg" alt="ref__item__channel"></div>
+                            <p> {{referenceLocation.locationName}}</p>
+                        </div>
+                        <div class="location__content">
+                            <div class="location__progress">
+                               <!--  <div class="location__progressBar"><ion-progress-bar [value]="progress"></ion-progress-bar></div> -->
+                                <p>20%</p>
+                            </div>
+                            <div class="location__priority">
+  <!--  Nivel de prioridad icon -->
+                                <div class="location__icon">
+                                    <img *ngIf="referenceLocation.priority[0].medium === true "class="log" src="../../../../assets/icon/ref __clock__basic.svg" alt="megaphone">
+                                    <img *ngIf="referenceLocation.priority[0].high === true "class="log" src="../../../../assets/icon/ref__clock__medium.svg" alt="megaphone">
+                                    <img *ngIf="referenceLocation.priority[0].veryHigh === true "class="log" src="../../../../assets/icon/ref__clock__high.svg" alt="megaphone">
+                                </div>
+  <!--  Nivel de prioridad color titulo -->
+                                <p 
+                                [style]="
+                                referenceLocation.priority[0].medium === true ? 'color:#00C851;'
+                                :
+                                referenceLocation.priority[0].high === true ? 'color:#F7A600;'
+                                : 
+                                referenceLocation.priority[0].veryHigh === true ? 'color:#FF4444;' 
+                                : 
+                                '' 
+                                "
+                                >vence en {{referenceLocation.priorityDays}} día</p>
+                            </div>
+                            <div 
+                            (click)="openLocations()"
+                                class="location__Open__section">
+                                <img 
+                                [style]="
+                                openLocation === true ? 
+                                'transform: rotate(180deg);transition: 0.5s;' 
+                                : 
+                                'transition: 0.5s' 
+                                "   
+                                src="../../../../../assets/icon/search__filter__active.svg" 
+                                alt="icon__open__section"
+                                > 
+                            </div>
+                        </div>
+
+                      <div *ngIf="openLocation">
+                        <div  *ngFor="let sections of referenceLocation.section "  class="section">
+                          <div class="media__info_filtersAndSchedule">
+                              <div class="filters">
+                                  <p> {{sections.sectionName}} </p>
+                              </div>
+                              <div class="schedule">
+                                  <div class="clockSchedule">
+                                    <img  class="" src="../../../assets/icon/ref__item__calendar.svg" alt="ref__item__calendar.">
+                                      <p class="default-text"> {{sections.openingHours}} </p>
+                                      <p class="hover-text">{{sections.closingHours}}</p>
+                                  </div>
+                                  <div class="schedule__days">
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].lun ===true ? 'color:#F7A600' : ''">Lun</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].mar ===true ? 'color:#F7A600' : ''">Mar</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].mie ===true ? 'color:#F7A600' : ''">Mie</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].jue ===true ? 'color:#F7A600' : ''">Jue</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].vie ===true ? 'color:#F7A600' : ''">Vier</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].sab ===true ? 'color:#F7A600' : ''">Sab</p>
+                                      </div>
+                                      <div>
+                                          <p [style]="sections.daysActivity[0].dom ===true ? 'color:#F7A600' : ''">Dom</p>
+                                      </div>  
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mediaComtent__Img">
+                              <ng-container *ngFor="let sectionPhoto of sections.picturesSection">
+                                <div class="mediaComtent__Img__Item" (click)="openModalPicture(sectionPhoto)">
+                                  <img class="log" [src]="sectionPhoto.img ? '../../../../assets/icon/location__upload__img.svg': '../../../assets/img/example_selected.png' " alt="Imagen">
+                                  <p>{{ sectionPhoto.nameSection }}</p>
+                                </div>
+                              </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>   
+          </div>
+      </div>
+  </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+

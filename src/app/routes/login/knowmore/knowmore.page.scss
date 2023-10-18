@@ -1,0 +1,141 @@
+ion-grid {
+    padding: 0;
+    background: #fff;
+    .main-h {
+        padding: 0;
+
+        .con {
+            height             : 224px;
+            background-image   : url("../../../assets/img/photo-of-people-holding-each-other-s-hands-3184433@2x.png");
+            background-size    : cover;
+            background-position: center center;
+            border-radius      : 0px 0px 50px 0px;
+
+            ion-icon {
+                font-size: 26px;
+                color    : white;
+                position : absolute;
+                top      : 33px;
+                left     : 24px;
+                z-index  : 1;
+            }
+
+            .mask {
+                background   : transparent linear-gradient(180deg, #00000000 0%, #000000 100%) 0% 0% no-repeat padding-box;
+                border-radius: 0px 0px 50px 0px;
+                height       : 100%;
+                position     : relative;
+
+                .log {
+                    width      : 34px;
+                    position   : absolute;
+                    display    : block;
+                    bottom     : 100px;
+                    margin-left: 13%;
+                }
+
+                p {
+                    font-family: "sf_pro_display_medium";
+                    font-size  : 24px;
+                    color      : #F5F5F5;
+                    width      : 301px;
+                    margin     : 0 auto;
+                    position   : absolute;
+                    bottom     : 32px;
+                    margin-left: 50%;
+                    transform  : translateX(-50%);
+                }
+            }
+        }
+
+        .formm {
+            padding-top   : 30px;
+            padding-bottom: 14px;
+            width         : 80%;
+            margin        : 0 auto;
+
+            .item-native {
+                padding: 0;
+            }
+
+            .lbs {
+                color      : #1C0101;
+                font-family: "sf_pro_display_medium";
+                font-size  : 14px;
+            }
+            ion-input {
+                padding-left: 24px !important;
+                &#name {
+                    background-image   : url("../../../assets/icon/user.svg");
+                    background-repeat  : no-repeat;
+                    background-size    : 17px;
+                    background-position: left center;
+
+                }
+
+                &#mail {
+                    background-image   : url("../../../assets/icon/mail.svg");
+                    background-repeat  : no-repeat;
+                    background-size    : 17px;
+                    background-position: left center;
+
+                }
+
+                &#tel {
+                    background-image   : url("../../../assets/icon/local_phone-black-18dp.svg");
+                    background-repeat  : no-repeat;
+                    background-size    : 17px;
+                    background-position: left center;
+
+                }
+
+                &#emp {
+                    background-image   : url("../../../assets/icon/business-black-18dp.svg");
+                    background-repeat  : no-repeat;
+                    background-size    : 17px;
+                    background-position: left center;
+
+                }
+            }
+
+            .but-log {
+                border-radius   : 2px;
+                width           : 270px;
+                height          : 48px;
+                color           : #1A1A1A;
+                font-size       : 18px;
+                font-family     : "sf_pro_display_regular";
+                margin          : 0 auto;
+                display         : block;
+                background-color: rgba(26, 26, 26, 0.1);
+                margin-bottom   : 10px;
+                margin-top      : 36px;
+
+                &.alt {
+                    background-color: #F9A51A;
+                    color           : #F9F3EA;
+                }
+            }
+
+        }
+
+
+        .terms {
+            display    : block;
+            text-align : center;
+            font-family: "sf_pro_display_medium";
+            font-size  : 13px;
+            color      : rgba(26, 26, 26, 0.4);
+            padding    : 0;
+            margin     : 0;
+            margin-top : 10px;
+
+
+            a {
+                display        : block;
+                color          : rgba(26, 26, 26, .40);
+                text-decoration: underline;
+            }
+        }
+    }
+}

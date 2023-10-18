@@ -1,0 +1,104 @@
+<ion-content class="ion-grid" [fullscreen]="true">
+  <div class="main-h">
+    <div class="con">
+      <ion-icon
+        class="backArr"
+        name="arrow-back-outline"
+        (click)="backLog()"
+      ></ion-icon>
+      <div class="mask">
+        <img
+          class="log"
+          src="../../../../assets/icon/enmedio-direct-iso.svg"
+          alt=""
+        />
+        <p>{{"Encuentra el público directo para tu pauta" | translate}}.</p>
+      </div>
+    </div>
+
+    <div class="form">
+      <!-- <button 
+				class="button" 
+				id="sign-up" 
+				[routerLink]="['/register']"
+				style="display: none;"
+				>{{"registrate" | translate}}
+			</button> -->
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked" class="lbs"
+          >{{"Hola" |translate}}
+        </ion-label>
+        <ion-input
+          placeholder="usuario@dominio.com.co"
+          id="mailOrUser"
+          autocomplete="on"
+          (ionInput)="validInput()"
+        >
+        </ion-input>
+      </ion-item>
+
+      <div class="company">
+        <ion-label class="label"> Selecciona tu organización </ion-label>
+        <ion-select placeholder="Buscar organización" class="ion-select">
+          <ion-select-option value="option1">Opción 1</ion-select-option>
+          <ion-select-option value="option2">Opción 2</ion-select-option>
+          <ion-select-option value="option3">Opción 3</ion-select-option>
+        </ion-select>
+
+        <p class="whereIsMyCompany" id="open-modal">no encuentro mi empresa</p>
+      </div>
+
+      <button class="button alt" id="login" [routerLink]="['/access']">
+        Continuar
+        <!-- {{"Continuar" |translate}} -->
+      </button>
+      <!-- <button class="button" id="knowMore" [routerLink]="['/knowmore']">{{"conoceMas" | translate}}</button> -->
+      <p class="terms">
+        Al continuar estás aceptando los términos de uso y políticas de
+        privacidad
+        <!-- {{"   Al continuar estás aceptando los términos de uso y" | translate}} 
+				<a [routerLink]="['/terms']">{{"políticas de privacidad" | translate}}</a> -->
+      </p>
+      <!-- <span class="versionNumber">V.{{appVersion}}</span> -->
+    </div>
+  </div>
+
+
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content >
+      
+        <div style="display: flex; justify-content: center;align-items: center; height: 100%;">
+         <div>
+          <ion-card-title 
+          style="
+            text-align: center;
+            font-size: 22px;
+            font-family: sans-serif;
+            margin: 0px 20px 0px 20px;
+            ">Contacta al administrador de tu cuenta empresarial</ion-card-title>
+        
+       
+          <ion-button 
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 60px 0px 60px;
+            margin-top: 25px;
+            " color="primary" (click)="modal.dismiss()">Entendido</ion-button>
+         </div>
+        </div>
+        
+       
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+
+
+

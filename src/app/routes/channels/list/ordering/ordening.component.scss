@@ -1,0 +1,64 @@
+$orangeDirect: #F7A600;
+
+
+.headerFilter{
+    border-bottom: 1px solid #0000002b;
+    .button{
+        font-weight: 600;
+        
+        .save, .cancel{
+            p{
+                color: $orangeDirect;
+            }
+           
+        }
+    }
+}
+
+
+.filterTitle{
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    p{
+        color: $orangeDirect;
+        display: flex;
+        align-items: end;
+        margin-top: 20px;
+        
+    }
+}
+.forFilters {
+    .openOrCloseFilters {
+        display: grid;
+        grid-template-columns: 320px auto;
+        align-items: center;
+        gap: 20px;
+        background-color: #80808012;
+        padding-left: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+}
+.content__forFiltersSelected{
+    display: grid;
+    grid-template-columns: auto auto;
+    color: white;
+    font-weight: 600;
+    height: 30px;
+    border-radius: 8px;
+    align-items: center;
+    gap: 20px;
+    .forFiltersSelected {
+        height: 100%;
+        display: flex;
+        border: 1px solid white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        background-color:$orangeDirect;
+        margin-bottom: 10px;
+    }
+}
+

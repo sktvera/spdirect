@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar class="headerFilter" >
+        <ion-buttons class="button" slot="start">
+            <ion-button class="cancel" color="medium" (click)="cancel()"><p>Cancelar</p></ion-button>
+        </ion-buttons>
+        <ion-title>Ordenamiento</ion-title>
+        <ion-buttons class="button" slot="end">
+            <ion-button class="save" (click)="confirm()" [strong]="true"><p>Guardar</p></ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="filterTitle">
+        <h3>ordenar por:</h3> 
+        <p> {{filterActive}} </p>
+    </div>
+    <div class="forFilters"  *ngFor="let elemento of elementos">
+        <div class="openOrCloseFilters">
+            <p> {{elemento.nombre}} </p>
+         <!--    <div 
+            (click)="openOrCloseFilters(elemento.nombre)"> 
+                <img 
+                src="../../../../../assets/icon/search__filter__active.svg" 
+                alt="open_Or_Close_Icon"
+                [style]="
+                activeFilters === true ? 
+                'transform: rotate(180deg);transition: 0.5s;color:black !important' 
+                : 
+                'transition: 0.5s' 
+                "   
+                >
+            </div> -->
+        </div>
+        <div *ngIf="activeFilters" class="content__forFiltersSelected">
+            <!-- <div (click)="saveFilter(subseleccion.nombre)" class="forFiltersSelected" *ngFor="let subseleccion of elemento.subselecciones">
+                <label>{{ subseleccion.nombre }}</label>
+            </div> -->
+        </div>
+    </div>
+</ion-content>
+

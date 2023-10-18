@@ -1,0 +1,28 @@
+.term-content {
+    padding-left : 15px;
+    padding-right: 15px;
+    color        : #1a1a1a;
+    padding-top  : 40px;
+    background: #fff;
+    .cont-terms {
+        text-align: justify;
+    }
+
+    span {
+        position  : absolute;
+        right     : 15px;
+        margin-top: -12px;
+        font-size : 30px;
+    }
+
+    h2 {
+        text-align : center;
+        font-family: "sf_pro_display_bold";
+        height     : 1.1em;
+    }
+
+    p {
+        text-align: justify;
+
+    }
+}

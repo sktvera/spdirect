@@ -1,0 +1,62 @@
+
+<ion-header class="ion-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button  (click)="cancelChanges()"><p>Cancelar</p></ion-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmChanges()"><p>Guardar</p></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar" (ionInput)="searchbarInput($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content  color="light" class="ion-padding">
+    <ion-list class="ion-list">
+        <ion-item class="forElements"  *ngFor="let elemento of elementos">
+            <div class="elementPrimaryFilter">
+              <div class="elementPrimaryFilter_alignment">
+                    <p>{{ elemento.nombre }}</p>
+             
+                    <div 
+                      style="
+                        display: flex;
+                        justify-content: center;
+                        "  
+                        (click)="toggleDesplegado(elemento)"
+                      >
+                          <img 
+                            [style]="
+                                elemento.desplegado === true ? 
+                                'transform: rotate(180deg);transition: 0.5s;' 
+                                : 
+                                'transition: 0.5s' 
+                              "   
+                            src="../../../../../assets/icon/search__filter__active.svg" 
+                            alt="search__filter__active"
+                          > 
+                    </div>
+              </div>
+              <ion-list class="forTitleFilter__Primary" *ngIf="elemento.desplegado">
+                  <ion-item *ngFor="let subseleccion of elemento.subselecciones">
+                    <ion-label>{{ subseleccion.nombre }}</ion-label>
+                   <div class="container__checkbox">
+                  <!--   <ion-checkbox
+                    [(ngModel)]="subseleccion.seleccionado"
+                    [checked]="isCheckedFilter($event)"
+                    (ionChange)="checkboxChangeFilter($event)"
+                    [value]="subseleccion.nombre"
+                    >
+                  </ion-checkbox> -->
+                   </div>
+                  </ion-item>
+              </ion-list>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,39 @@
+
+   .content_header_true{
+    display: grid;
+    grid-template-columns: 110px  280px;
+    gap: 10px;
+    .header_items{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .items_settings{
+        width: 90.5%;
+        display: grid !important;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+    }
+}
+.content_header{
+
+    display: grid;
+    grid-template-columns: 110px 190px 90px;
+    gap: 10px;
+    align-items: center;
+    .header_items{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
+
+.footer_items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+   }
